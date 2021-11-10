@@ -1,4 +1,4 @@
-*devgoodies.txt*  Plugin for working with git
+*devgoodies.txt*  Plugin for editing code in multiple programming languages
 
 Author:  Michael Moser (https://github.com/MoserMichael)
 License: Same terms as Vim itself (see |license|)
