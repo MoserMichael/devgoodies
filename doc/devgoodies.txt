@@ -1,0 +1,92 @@
+*devgoodies.txt*  Plugin for working with git
+
+Author:  Michael Moser (https://github.com/MoserMichael)
+License: Same terms as Vim itself (see |license|)
+repository: http://github.com/MoserMichael/devgoodies
+
+
+CONTENTS					*devgoodies-contents*
+
+Introduction					|devgoodies-introduction|
+Command 		   			    |devgoodies-command|
+Changelog	    				|devgoodies-changelog|
+
+==============================================================================
+INTRODUCTION					*devgoodies-introduction*
+
+
+The *devgoodies* ( *devgoodies.vim* ) provides a set of  tools for editing source code for a variety of programming languages. 
+I really think that this extension is awesome.
+All this goodness is best used in conjunction with the GitBlame plugin (link: https://github.com/MoserMichael/gitblame)
+
+------------------------------------------------------------------------------
+COMMAND     					*devgoodies-command*
+
+Auto command: when starting to use a buffer; sets noexpandtab option for files with extension .go and .mk as well as files with name makefile, Makefile
+For all other extensions it does set expandtab (expand spaces for tabs)
+
+Build  -  asynchronous build tool. Runs a build procedure, you can continue editing, while the build is running. Action depends on file extension of the file edited in the current buffer.
+    If current directory contains executable script make_overridable - run this script to do the build.
+    If current directory contains build.gradle then run the following command: gradle cleantest test --frail-fast ; if the current directory also contains a ./gradlew script it uses that.
+    If current directory contains pom.xml then run mvn test
+    If current drectory contain makefile, then use it to build
+Note that the quickfix window is editable, for the duration of the build.
+
+StopBuild -  stop currently ongoing asynchronous build.
+
+PrevBuildResult - show build results of previous build run in quickfix window. The command is useful, if you used some other command, that changed the content of the quickfix buffer.
+
+Grep - grep for a word, from current directory down. (the command execution is synchronous, right now)
+
+Lint - use static analysis to check file edited in buffer, Action depends on file extension of the file edited in the current buffer.
+ 
+    For exension *.sh, use shelcheck
+    for extenson *.py, use pylint
+    for extension *.pl, use perl critic
+    For *.go extension, if makefile is found in current directory, then run make vet
+
+Format - pretty print the content of the current buffer. Action depends on file extension of the file edited in the current buffer.
+ 
+    For go extension, use gofmt -w
+    for  *c, *.cpp, *.h, *.hpp extension, use clang-format -i
+    for  *.py extension, use black
+    For any other extension: removing trailing spaces
+
+Comment - comment out the block text that is currently selected. Action depends on file extension of the file edited in the current buffer.
+ 
+    For *.vim extenson or filename .vimrc, prepend line with " character
+    For *.sh, *.py, *.pl, *.yaml, prepend line with # character
+    For *.java, *.go, *.cpp, *.c, *.h, *.hpp extension, prepend lines with // character
+    For all other extension, prepend lines with # character.
+
+UnComment - uncomment a block that has been previously commented out by Comment command.
+
+MakeTags - build ctags. 
+           If in a git repository, search for all sources, from the root of the repository down, otherwise the current directory is examined.
+           Type of sources tagged is provided by argument
+           Example
+        
+                MakeTags java  - builds tags for java
+
+            Accepts the following arguments: go, c, cpp, py,  Builds all tags for any other argument.
+            If no argument is given, then it uses the extension of the file edited in the current buffer, in order to set the type of scanned files.
+
+
+UseTags - search for tag file, first in the current directory, then in the parent directory, and further upward.
+    The first tag file is used.
+
+Redir -  run any command and put the output in a scratch buffer.
+         For example to list all remote branches: Redir !git branch -r
+         To make a commit with given commit message: Redir !git commit -m 'my commit message here'
+         To push local commits to upstream branch: Redir !git push
+
+ACKNOWLEDGEMENT
+
+    This plugin uses Redir by Romain Lafourcade https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+
+==============================================================================
+CHANGELOG					*devgoodies-changelog*
+
+0.0	2021-10-10
+	- Initial commit
+
