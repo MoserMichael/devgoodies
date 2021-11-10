@@ -40,7 +40,7 @@ Grep - grep for a word, from current directory down. (the command execution is s
 
 Lint - use static analysis to check file edited in buffer, Action depends on file extension of the file edited in the current buffer.
  
-    For exension *.sh, use shelcheck
+    For exension *.sh, use shellcheck
     for extenson *.py, use pylint
     for extension *.pl, use perl critic
     For *.go extension, if makefile is found in current directory, then run make vet

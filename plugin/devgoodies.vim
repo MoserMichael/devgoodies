@@ -1,4 +1,11 @@
 
+"======================================================
+" utility functions
+"======================================================
+function! s:Chomp(string)
+    return substitute(a:string, '\n\+$', '', '')
+endfunction
+
 
 if !exists(":SetModeForBuffer")
 
