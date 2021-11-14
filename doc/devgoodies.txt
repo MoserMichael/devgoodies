@@ -63,6 +63,7 @@ UnComment - uncomment a block that has been previously commented out by Comment 
 
 MakeTags - build tags. Uses gotags for go, and ctags in all other cases.
            If in a git repository, search for all sources, from the root of the repository down, otherwise the current directory is examined.
+           The tag file is placed in the root directory of the current git repository, is placed in tge current directory if not part of a git repo.
            Type of sources tagged is provided by argument
            Example
         
@@ -72,8 +73,8 @@ MakeTags - build tags. Uses gotags for go, and ctags in all other cases.
             If no argument is given, then it uses the extension of the file edited in the current buffer, in order to set the type of scanned files.
 
 
-UseTags - search for tag file, first in the current directory, then in the parent directory, and further upward.
-    The first tag file is use
+UseTags - search for tag file, if in a git repo, then the root dir of the repository, otherwise uses current dir.
+          This function is run on vim start up.
 
 
 Redir -  run any command and put the output in a scratch buffer.
