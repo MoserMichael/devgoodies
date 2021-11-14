@@ -5,4 +5,7 @@ Vim plugin - usefull commands for editing code.
 
 ```mkdir -p ~/.vim/pack/vendor/start/devgoodies; git clone --depth 1 https://github.com/MoserMichael/devgoodies ~/.vim/pack/vendor/start/devgoodies```
  
-Download zip from
+# Documentation
+
+See [doc file](https://raw.githubusercontent.com/MoserMichael/devgoodies/master/doc/devgoodies.txt)
+
