@@ -73,12 +73,15 @@ MakeTags - build tags. Uses gotags for go, and ctags in all other cases.
 
 
 UseTags - search for tag file, first in the current directory, then in the parent directory, and further upward.
-    The first tag file is used.
+    The first tag file is use
+
 
 Redir -  run any command and put the output in a scratch buffer.
          For example to list all remote branches: Redir !git branch -r
          To make a commit with given commit message: Redir !git commit -m 'my commit message here'
          To push local commits to upstream branch: Redir !git push
+
+OpenQuickFix - open quickfix window in lower side, that covers a third of the terminal.
 
 ACKNOWLEDGEMENT
 
