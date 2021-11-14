@@ -70,6 +70,7 @@ MakeTags - build tags. Uses gotags for go, and ctags in all other cases.
                 MakeTags java  - builds tags for java
 
             Accepts the following arguments: go, c, cpp, py, java  Builds all tags for any other argument.
+            If no extension is given, then all sourse files are tagged with ctag.
             If no argument is given, then it uses the extension of the file edited in the current buffer, in order to set the type of scanned files.
 
 
