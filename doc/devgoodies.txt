@@ -29,7 +29,7 @@ Build  -  asynchronous build tool. Runs a build procedure, you can continue edit
     If current directory contains executable script make_overridable - run this script to do the build.
     If current directory contains build.gradle then run the following command: gradle cleantest test --fail-fast ; if the current directory also contains a ./gradlew script it uses that.
     If current directory contains pom.xml then run mvn test
-    If current drectory contain makefile, then use it to build
+    If current drectory contain a makefile, then use it to build, pass $MAKE_OPT as parameters.
 Note that the quickfix window is editable, for the duration of the build.
 
 StopBuild -  stop currently ongoing asynchronous build.
@@ -61,28 +61,33 @@ Comment - comment out the block text that is currently selected. Action depends 
 
 UnComment - uncomment a block that has been previously commented out by Comment command.
 
-MakeTags - build ctags. 
+MakeTags - build tags. Uses gotags for go, and ctags in all other cases.
            If in a git repository, search for all sources, from the root of the repository down, otherwise the current directory is examined.
+           The tag file is placed in the root directory of the current git repository, is placed in tge current directory if not part of a git repo.
            Type of sources tagged is provided by argument
            Example
         
                 MakeTags java  - builds tags for java
 
-            Accepts the following arguments: go, c, cpp, py,  Builds all tags for any other argument.
+            Accepts the following arguments: go, c, cpp, py, java  Builds all tags for any other argument.
+            If no extension is given, then all sourse files are tagged with ctag.
             If no argument is given, then it uses the extension of the file edited in the current buffer, in order to set the type of scanned files.
 
 
-UseTags - search for tag file, first in the current directory, then in the parent directory, and further upward.
-    The first tag file is used.
+UseTags - search for tag file, if in a git repo, then the root dir of the repository, otherwise uses current dir.
+          This function is run on vim start up.
+
 
 Redir -  run any command and put the output in a scratch buffer.
          For example to list all remote branches: Redir !git branch -r
          To make a commit with given commit message: Redir !git commit -m 'my commit message here'
          To push local commits to upstream branch: Redir !git push
 
+OpenQuickFix - open quickfix window in lower side, that covers a third of the terminal.
+
 ACKNOWLEDGEMENT
 
-    This plugin uses Redir by Romain Lafourcade https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+    This plugin includes Redir by Romain Lafourcade https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
 
 ==============================================================================
 CHANGELOG					*devgoodies-changelog*
