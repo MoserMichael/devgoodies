@@ -28,3 +28,8 @@ See this script on [vim.org](https://www.vim.org/scripts/script.php?script_id=59
 
 See [doc file](https://raw.githubusercontent.com/MoserMichael/devgoodies/master/doc/devgoodies.txt)
 
+# Acknowledgement
+
+This plugin uses Redir by Romain Lafourcade https://gist.github.com/romainl/eae0a260ab9c135390c30cd370c20cd7
+
+
