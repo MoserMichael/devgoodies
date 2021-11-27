@@ -36,7 +36,8 @@ StopBuild -  stop currently ongoing asynchronous build.
 
 PrevBuildResult - show build results of previous build run in quickfix window. The command is useful, if you used some other command, that changed the content of the quickfix buffer.
 
-Grep - grep for a word, from current directory down. (the command execution is synchronous, right now)
+DoGrep - grep for a word, from current directory down. (the command execution is synchronous, right now)
+         It prompts for the word under the current cursor (can be changed in the prompt)
 
 Lint - use static analysis to check file edited in buffer, Action depends on file extension of the file edited in the current buffer.
  
